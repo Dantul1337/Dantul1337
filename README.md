@@ -1,4 +1,1 @@
-- 👋 Hi, I’m Dantul
-- 👀 I’m interested in web dev
-- 🌱 I’m currently learning Html, Css, JS, React.js
-- 📫 My EMail - contactdantul1337@gmail.com
+Hi! I'm Dantul! Im a React-Developer (Front-End)! I know HTML, CSS, JS, React.js! If you want to contact with me: contactdantul1337@gmail.com
