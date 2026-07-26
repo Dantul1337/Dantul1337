@@ -2,33 +2,35 @@
 <h3 align="center">Fullstack-разработчик | React · TypeScript · Node.js</h3>
 
 <p align="center">
-  Строю продукты, которые решают реальные задачи бизнеса — от медицинских B2B-сервисов до платформ аренды авто.
+  Проектирую схему БД и REST API с нуля, пишу типизированный код (TypeScript) на фронте и бэке.
   <br/>
-  Цель — стать лучшим в индустрии 🚀
+  Ниже — готовый проект <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>, полностью рабочий, с деплоем на проде.
 </p>
 
 ---
 
-### 🔭 Сейчас работаю над
+### 🔭 Мои проекты
 
-- 🏥 **Pet-проект в сфере медицинского B2B** — платформа для взаимодействия клиник и партнёров
-- 🚗 **Сервис аренды автомобилей** — от бронирования до управления автопарком
+**[CodeMentor](https://github.com/Dantul1337/CodeMentor)** — каталог программистских курсов с формой заявки на обучение, упакованный как устанавливаемое PWA с push-уведомлениями.
+
+- 🎓 REST API на Express: `/api/courses` отдаёт список и карточку курса, `/api/applications` принимает заявки (name/email/phone) — контроллеры и бизнес-логика разделены по паттерну **controller → service → Prisma**
+- 📲 Установка приложения без нативного магазина: обработал `beforeinstallprompt` для Chrome/Android и написал отдельный modal-гайд для iOS, где этого события нет вообще — Safari не поддерживает его штатно
+- 🔌 Офлайн-режим через кастомный Service Worker на стратегии Workbox `injectManifest` (не готовый плагин "из коробки", а собственный `sw.ts` с точечным кэшированием ассетов)
+- 🔔 Push-уведомления в реальном времени: подписки браузеров хранятся в отдельной таблице `PushSubscription`, рассылка идёт через VAPID-подписанный `web-push`, `/api/push/send` шлёт сообщение сразу всем подписчикам
+- 🏗️ Три БД-модели (`Course`, `Application`, `PushSubscription`) через Prisma, три независимых сервиса в проде: фронт на Vercel, API на Render, PostgreSQL на Supabase — чтобы деплоить и масштабировать бэкенд отдельно от PWA-оболочки
+
+🔗 Демо: [code-mentor-inky.vercel.app](https://code-mentor-inky.vercel.app/)
 
 ---
 
 ### 🛠️ Стек технологий
 
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,js,html,css,git" alt="Skills" />
-</p>
+**Frontend:** React 19 + TypeScript (strict) — React Router для клиентского роутинга, Axios для запросов к API, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
+**Backend:** Node.js + Express 5 на TypeScript (`tsx`), Prisma ORM поверх PostgreSQL, `web-push` для VAPID-подписанных push-уведомлений
+**Инфраструктура:** Vercel (frontend), Render (backend API), Supabase (managed PostgreSQL) — три отдельных деплоя вместо одного монолита
 
 <p align="left">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" />
+  <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,vite,js,html,css,git" alt="Skills" />
 </p>
 
 ---
@@ -38,7 +40,6 @@
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Dantul1337&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
 </p>
-
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=Dantul1337&theme=tokyo-night&hide_border=true" alt="Activity Graph" />
 </p>
