@@ -4,12 +4,24 @@
 <p align="center">
   Проектирую схему БД и REST API с нуля, пишу типизированный код (TypeScript) на фронте и бэке.
   <br/>
-  Ниже — готовый проект <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>, полностью рабочий, с деплоем на проде.
+  Ниже — два готовых проекта, полностью рабочих, с деплоем на проде: <a href="https://github.com/Dantul1337/GroceryExpress">GroceryExpress</a> и <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>.
 </p>
 
 ---
 
 ### 🔭 Мои проекты
+
+**[GroceryExpress](https://github.com/Dantul1337/GroceryExpress)** — интернет-магазин по доставке продуктов с живым отслеживанием курьера на карте и авто-назначением доставки.
+
+- 🛒 REST API на Express: 7 групп роутов (`auth`, `products`, `orders`, `addresses`, `admin`, `delivery`, `upload`) с тремя независимыми уровнями доступа — свой middleware на покупателя, администратора и курьера
+- 💳 Оплата через Stripe Checkout: сервер создаёт Checkout Session, а webhook на `payment_intent.succeeded` списывает товар со склада и запускает фоновые события
+- 🤖 Авто-назначение курьера через Inngest: спустя 5 минут после оплаты сервер сам находит свободного курьера, генерирует 6-значный OTP и переводит заказ в статус `Assigned` — без участия администратора
+- 🗺️ Живой трекинг доставки: курьер обновляет геопозицию через API, покупатель видит её на карте (React Leaflet) в реальном времени на странице своего заказа
+- 🏗️ Пять БД-моделей (`User`, `Address`, `Product`, `Order`, `DeliveryPartner`) через Prisma, три независимых сервиса в проде: фронт на Vercel, API на Render, PostgreSQL на Neon
+
+🔗 Демо: [grocery-express-theta.vercel.app](https://grocery-express-theta.vercel.app/)
+
+---
 
 **[CodeMentor](https://github.com/Dantul1337/CodeMentor)** — каталог программистских курсов с формой заявки на обучение, упакованный как устанавливаемое PWA с push-уведомлениями.
 
@@ -25,12 +37,12 @@
 
 ### 🛠️ Стек технологий
 
-**Frontend:** React 19 + TypeScript (strict) — React Router для клиентского роутинга, Axios для запросов к API, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
-**Backend:** Node.js + Express 5 на TypeScript (`tsx`), Prisma ORM поверх PostgreSQL, `web-push` для VAPID-подписанных push-уведомлений
-**Инфраструктура:** Vercel (frontend), Render (backend API), Supabase (managed PostgreSQL) — три отдельных деплоя вместо одного монолита
+**Frontend:** React 19 + TypeScript (strict) — React Router для клиентского роутинга, Axios для запросов к API, Tailwind CSS для стилизации, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
+**Backend:** Node.js + Express 5 на TypeScript (`tsx`), Prisma ORM поверх PostgreSQL, Stripe для онлайн-оплаты, Inngest для фоновых и отложенных задач, `web-push` для VAPID-подписанных push-уведомлений
+**Инфраструктура:** Vercel (frontend), Render (backend API), Neon и Supabase (managed PostgreSQL) — отдельные деплои вместо одного монолита в каждом проекте
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,vite,js,html,css,git" alt="Skills" />
+  <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,vite,tailwind,js,html,css,git" alt="Skills" />
 </p>
 
 ---
