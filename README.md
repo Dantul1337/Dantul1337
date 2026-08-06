@@ -4,7 +4,8 @@
 <p align="center">
   Проектирую схему БД и REST API с нуля, пишу типизированный код (TypeScript) на фронте и бэке.
   <br/>
-  Ниже — два готовых проекта, полностью рабочих, с деплоем на проде: <a href="https://github.com/Dantul1337/GroceryExpress">GroceryExpress</a> и <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>.
+  Ниже — два готовых проекта, полностью рабочих, с деплоем на проде: <a href="https://github.com/Dantul1337/GroceryExpress">GroceryExpress</a> и <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>,
+  а также <a href="https://github.com/Dantul1337/TaskTracker">TaskTracker</a> — бэкенд с упором на покрытие тестами.
 </p>
 
 ---
@@ -35,11 +36,21 @@
 
 ---
 
+**[TaskTracker](https://github.com/Dantul1337/TaskTracker)** — REST API для трекера задач с JWT-аутентификацией, сделанный как демонстрация покрытия бэкенда тестами.
+
+- ✅ Двухуровневое тестирование: юнит-тесты сервисов (`Vitest`, с моками зависимостей) и интеграционные тесты через `Supertest` — реальные HTTP-запросы к `/api/auth` и `/api/tasks`, включая проверку авторизации и доступа к чужим задачам
+- 🔐 JWT-аутентификация и хэширование паролей через `bcrypt`, доступ к задачам только у их владельца
+- 🏗️ Две БД-модели (`User`, `Task`) через Prisma поверх PostgreSQL, отдельная тестовая база данных, изолированная от рабочей
+- 🧱 Архитектура по паттерну **route → controller → service**, типизация на TypeScript
+
+---
+
 ### 🛠️ Стек технологий
 
 **Frontend:** React 19 + TypeScript (strict) — React Router для клиентского роутинга, Axios для запросов к API, Tailwind CSS для стилизации, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
 **Backend:** Node.js + Express 5 на TypeScript (`tsx`), Prisma ORM поверх PostgreSQL, Stripe для онлайн-оплаты, Inngest для фоновых и отложенных задач, `web-push` для VAPID-подписанных push-уведомлений
 **Инфраструктура:** Vercel (frontend), Render (backend API), Neon и Supabase (managed PostgreSQL) — отдельные деплои вместо одного монолита в каждом проекте
+**Тестирование:** Vitest (юнит-тесты) + Supertest (интеграционные тесты API)
 
 <p align="left">
   <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,vite,tailwind,js,html,css,git" alt="Skills" />
@@ -49,9 +60,6 @@
 
 ### 📊 GitHub статистика
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Dantul1337&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
-</p>
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=Dantul1337&theme=tokyo-night&hide_border=true" alt="Activity Graph" />
 </p>
