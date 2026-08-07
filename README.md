@@ -1,10 +1,10 @@
 <h1 align="center">Привет, я Даниил 👋</h1>
-<h3 align="center">Fullstack-разработчик | React · TypeScript · Node.js</h3>
+<h3 align="center">Fullstack-разработчик | React · Next.js · TypeScript · Node.js</h3>
 
 <p align="center">
   Проектирую схему БД и REST API с нуля, пишу типизированный код (TypeScript) на фронте и бэке.
   <br/>
-  Ниже — два готовых проекта, полностью рабочих, с деплоем на проде: <a href="https://github.com/Dantul1337/GroceryExpress">GroceryExpress</a> и <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a>,
+  Ниже — три готовых проекта, полностью рабочих, с деплоем на проде: <a href="https://github.com/Dantul1337/GroceryExpress">GroceryExpress</a>, <a href="https://github.com/Dantul1337/CodeMentor">CodeMentor</a> и <a href="https://github.com/Dantul1337/LinkPulse">LinkPulse</a>,
   а также <a href="https://github.com/Dantul1337/TaskTracker">TaskTracker</a> — бэкенд с упором на покрытие тестами.
 </p>
 
@@ -36,6 +36,19 @@
 
 ---
 
+**[LinkPulse](https://github.com/Dantul1337/LinkPulse)** — сервис сокращения ссылок с аналитикой переходов: клики, устройства, браузеры, ОС, рефереры и география по IP.
+
+- 🔗 Fullstack на Next.js 16 App Router: React UI, Server Actions и Route Handler `/[shortCode]` живут в одном проекте — без отдельного бэкенда
+- ⚡ Редирект не ждёт аналитику: клик сразу обрабатывается HTTP-редиректом, а разбор `User-Agent` и запись клика в БД происходят после ответа через `after()`
+- 🔐 Авторизация через Better Auth (GitHub OAuth): доступ к дашборду и удаление ссылок — только у владельца, проверка сессии продублирована на уровне middleware и Server Actions
+- 🛡️ Rate limiting на Upstash Redis: 10 новых ссылок в минуту на пользователя, 60 редиректов в минуту на IP
+- 📊 Дашборд аналитики на Recharts: клики по дням, устройства и страны, карточки-сводки с анимированными счётчиками, копирование ссылки в один клик, skeleton-заглушки на время загрузки
+- 🏗️ Модели `User`, `Link`, `Click` (+ модели Better Auth) через Prisma 7 поверх Neon PostgreSQL
+
+🔗 Демо: [link-pulse-drab.vercel.app](https://link-pulse-drab.vercel.app/)
+
+---
+
 **[TaskTracker](https://github.com/Dantul1337/TaskTracker)** — REST API для трекера задач с JWT-аутентификацией. Backend-only проект без деплоя, сделанный как демонстрация подхода к покрытию бэкенда тестами.
 
 - ✅ Двухуровневое тестирование: юнит-тесты сервисов (`Vitest`, с моками зависимостей) и интеграционные тесты через `Supertest` — реальные HTTP-запросы к `/api/auth` и `/api/tasks`, включая проверку авторизации и доступа к чужим задачам
@@ -47,13 +60,13 @@
 
 ### 🛠️ Стек технологий
 
-**Frontend:** React 19 + TypeScript (strict) — React Router для клиентского роутинга, Axios для запросов к API, Tailwind CSS для стилизации, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
-**Backend:** Node.js + Express 5 на TypeScript (`tsx`), Prisma ORM поверх PostgreSQL, Stripe для онлайн-оплаты, Inngest для фоновых и отложенных задач, `web-push` для VAPID-подписанных push-уведомлений
-**Инфраструктура:** Vercel (frontend), Render (backend API), Neon и Supabase (managed PostgreSQL) — отдельные деплои вместо одного монолита в каждом проекте
-**Тестирование:** Vitest (юнит-тесты) + Supertest (интеграционные тесты API)
+**Frontend:** React 19 + TypeScript (strict) — React Router и Next.js App Router (в зависимости от проекта), Axios для запросов к API, Tailwind CSS для стилизации, `vite-plugin-pwa` в режиме `injectManifest` для манифеста и кастомного Service Worker
+**Backend:** Node.js + Express 5 на TypeScript (`tsx`), а также Next.js Server Actions и Route Handlers; Prisma ORM поверх PostgreSQL, Stripe для онлайн-оплаты, Inngest для фоновых и отложенных задач, `web-push` для VAPID-подписанных push-уведомлений, Better Auth для OAuth-аутентификации
+**Инфраструктура:** Vercel (frontend / fullstack Next.js), Render (backend API), Neon и Supabase (managed PostgreSQL), Upstash Redis (rate limiting) — отдельные деплои вместо одного монолита в каждом проекте
+**Тестирование:** Vitest (юнит-тесты) + Supertest (интеграционные тесты API) + Playwright (E2E)
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=react,ts,nodejs,express,postgres,prisma,vite,tailwind,js,html,css,git" alt="Skills" />
+  <img src="https://skillicons.dev/icons?i=react,nextjs,ts,nodejs,express,postgres,prisma,redis,vite,tailwind,js,html,css,git" alt="Skills" />
 </p>
 
 ---
